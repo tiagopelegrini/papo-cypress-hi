@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 it('Criar ticket', () => {
-    cy.login().visit('https://app.hiplatform.com/agent/ticket/inbox');
+    cy.login().visit('/agent/ticket/inbox');
     cy.wait(2500)
     cy.get('[data-id="btn_new_ticket_left"]').click();
     cy.get('[data-cy=Name]').type('Ticket Cypress')
