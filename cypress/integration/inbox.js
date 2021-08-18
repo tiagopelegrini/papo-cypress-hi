@@ -16,14 +16,15 @@ describe('Inbox', () => {
     cy.get('button[type="submit"]').click().wait(1500)
 
     cy.get('#assignedUser').should('have.value', 'Alan Souza')
-
   });
 
   it('caixa vazia', () => {
     cy.intercept({
+      //mapeando a requisição
       method: 'GET',
       url: 'https://app.hiplatform.com/agent/ticket/1.0/tickets/inbox/createdate/DESC?count=50&skip=0'
     },
+      //resposta que eu quero simular para requisição mapeada
       {
         statusCode: 200,
         fixture: 'empty-inbox'
